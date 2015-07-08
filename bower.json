@@ -1,0 +1,16 @@
+{
+  "name": "listen-later",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pravipati/listen-later",
+  "authors": [
+    "Pavan Ravipati <psravipati@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
