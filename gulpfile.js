@@ -1,11 +1,41 @@
 // node modules
 // ============
 
-var gulp = require('gulp');
+var gulp = require('gulp'),
+  bower = require('gulp-bower'),
+  plumber = require('gulp-plumber'),
+  uglify = require('gulp-uglify'),
+  concat = require('gulp-concat');
 
-//TODO:
-//One script tag for all bower installed files
-  //Gulp everything in our bower directory and minify / uglify it down into our dist / vendor file
-//One script for all of our src js
-  //Gulp everythign in our build/js and build/css into one dist file
+// directories 
+// ===========
+var path = {};
+path.BOWER_COMPONENTS_DIR = './bower_components';
+path.DIST_JS_DIR = './client/dist/js';
+path.DIST_CSS_DIR = './client/dist/css';
 
+// build src code
+// ==============
+
+path.APP_JS_SRC = [
+  './client/build/js/*.js'
+];
+path.APP_JS_MIN = 'app.min.js';
+
+path.APP_CSS_SRC = [
+  './client/build/css/*.css'
+];
+path.APP_CSS_MIN = 'app.min.css';
+
+// build task: fetch, uglify, concat code
+// ======================================
+
+gulp.task('build', ['app']);
+
+gulp.task('app', function() {
+  gulp.src(path.APP_JS_SRC)
+    .pipe(plumber())
+    .pipe(uglify())
+    .pipe(concat(path.APP_JS_MIN))
+    .pipe(gulp.dest(path.DIST_JS_DIR));
+});
