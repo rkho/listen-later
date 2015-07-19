@@ -9,7 +9,7 @@ var port = process.env.PORT || 3000;
 //App server
 //===========
 
-app.use(express.static(__dirname + '/../client'));
+app.use(express.static(__dirname + './../client'));
 app.use(bodyParser());
 
 app.use('/', function(req, res, next) {
