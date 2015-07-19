@@ -1,6 +1,10 @@
 var router = require('express').Router();
 var db = require('./../database');
 
+router.get('/get', function(req, res) {
+  console.log('get request');
+});
+
 router.post('/create', function(req, res) {
   var url = req.body.url;
   var timestamp = req.body.url
