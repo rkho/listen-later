@@ -24,3 +24,17 @@ app.use('/api', router);
 var server = app.listen(port, function() {
   console.log('Listening on port:', port);
 });
+
+app.get('/', function(req, res) {
+  res.render('index');
+})
+
+app.post('/api/add/:link', function(req, res) {
+  res.send('You have sent! ' + req.params.link)
+})
+
+app.get('/api/user/:name', function(req, res) {
+  res.send('You have requested ' + req.params.name)
+})
+
+module.exports = app;
